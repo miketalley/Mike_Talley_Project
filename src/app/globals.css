@@ -25,3 +25,27 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@font-face {
+  font-family: RingBearer;
+  src: url(/fonts/ringbearer/RINGM___.TTF);
+}
+
+@font-face {
+  font-family: Bilbo;
+  src: url(/fonts/bilbo/Bilbo-Regular.ttf);
+}
+
+h1 {
+  font-family: RingBearer;
+  font-size: 3rem;
+}
+
+h2 {
+  font-family: Bilbo;
+  font-size: 1.5rem;
+}
+
+.container {
+  padding: 1rem 2rem 1rem 2rem;
+}
