@@ -131,6 +131,12 @@ button.clear {
   content: 'Result: ';
 }
 
+.your-guess:before,
+.correct-answer:before,
+.guess-result:before {
+  color: white !important;
+}
+
 .guess-result.correct {
   color: green;
 }
