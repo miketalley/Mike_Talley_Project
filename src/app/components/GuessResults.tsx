@@ -13,8 +13,8 @@ export default function GuessResults({
   selectedMovie: any;
   selectedQuote: any;
 }) {
-  const [correctCharacter, setCorrectCharacter] = useState(null);
-  const [correctMovie, setCorrectMovie] = useState(null);
+  const [correctCharacter, setCorrectCharacter] = useState<any>(null);
+  const [correctMovie, setCorrectMovie] = useState<any>(null);
 
   useEffect(() => {
     fetch(`/api/character?id=${selectedQuote.character}`).then(res =>

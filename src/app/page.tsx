@@ -33,23 +33,6 @@ export default function Home() {
     setSelectedQuote(quotes[Math.floor(Math.random() * quotes.length)]);
   };
 
-  // const checkAnswer = () => {
-  //   console.log(
-  //     'Character: ',
-  //     selectedQuote.character,
-  //     selectedCharacter.item._id,
-  //   );
-  //   console.log('Movie: ', selectedQuote.movie, selectedMovie.item._id);
-  //   if (
-  //     selectedQuote.character === selectedCharacter.item._id &&
-  //     selectedQuote.movie === selectedMovie.item._id
-  //   ) {
-  //     alert('Correct!');
-  //   } else {
-  //     alert('Incorrect!');
-  //   }
-  // };
-
   const displayQuoteGuessing = () => {
     return (
       <>
@@ -69,7 +52,6 @@ export default function Home() {
         >
           Submit
         </button>
-        {/* {displayPlayButton()} */}
       </>
     );
   };
