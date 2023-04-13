@@ -64,7 +64,7 @@ export default function CharacterSearch({
           onChange={onType}
         />
 
-        <div className="character-results">
+        <div className="results">
           {characters.map((character: any) => {
             return (
               <div

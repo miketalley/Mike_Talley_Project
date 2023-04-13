@@ -75,7 +75,6 @@ input {
 }
 
 .quote,
-.character-guess,
 .movie-guess {
   margin-top: 2rem;
 }
@@ -89,6 +88,10 @@ input {
 .results {
   max-height: 300px;
   overflow-y: scroll;
+}
+
+.results > * {
+  cursor: pointer;
 }
 
 .quoted-text {

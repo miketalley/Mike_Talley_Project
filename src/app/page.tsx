@@ -65,6 +65,8 @@ export default function Home() {
   };
 
   const playAgain = () => {
+    setSelectedCharacter(null);
+    setSelectedMovie(null);
     setGuessed(false);
     play();
   };

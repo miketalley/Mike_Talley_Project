@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, MouseEventHandler } from 'react';
+import SelectedQuote from './SelectedQuote';
 
 export default function GuessResults({
   onPlayAgain,
@@ -30,6 +31,7 @@ export default function GuessResults({
     correctCharacter &&
     correctMovie && (
       <>
+        <SelectedQuote selectedQuote={selectedQuote} />
         <div className="guess-results">
           <div className="character-guess">
             <h3>Who said it?</h3>

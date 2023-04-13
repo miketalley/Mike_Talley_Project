@@ -64,7 +64,7 @@ export default function MovieSearch({
           onChange={onType}
         />
 
-        <div className="movie-results">
+        <div className="results">
           {movies.map((movie: any) => {
             return (
               <div key={movie.item._id} onClick={() => selectMovie(movie)}>
