@@ -5,40 +5,50 @@ import { useEffect, useState } from 'react';
 import CharacterSearch from './components/CharacterSearch';
 import MovieSearch from './components/MovieSearch';
 import SelectedQuote from './components/SelectedQuote';
+import GuessResults from './components/GuessResults';
 
 export default function Home() {
   const [quotes, setQuotes] = useState<any>([]);
   const [selectedQuote, setSelectedQuote] = useState<any>(null);
   const [selectedCharacter, setSelectedCharacter] = useState<any>(null);
   const [selectedMovie, setSelectedMovie] = useState<any>(null);
+  const [guessed, setGuessed] = useState(false);
 
   useEffect(() => {
+    // Hacky way of getting all the quotes because the limit is 1000
     Promise.all([
-      fetch('/api/quotes?page=1'),
-      fetch('/api/quotes?page=2'),
-      fetch('/api/quotes?page=3'),
+      fetch('/api/quote?page=1'),
+      fetch('/api/quote?page=2'),
+      fetch('/api/quote?page=3'),
     ]).then(([p1, p2, p3]) =>
       Promise.all([p1.json(), p2.json(), p3.json()]).then(
         ([json1, json2, json3]) => {
-          console.log(json1, json2, json3);
           setQuotes([...json1.docs, ...json2.docs, ...json3.docs]);
         },
       ),
     );
-
-    // fetch('/api/quotes?limit=2500')
-    //   .then(resp => resp.json())
-    //   .then(json => {
-    //     console.log(json);
-    //     setQuotes(json.docs);
-    //   });
   }, []);
 
   const play = () => {
     setSelectedQuote(quotes[Math.floor(Math.random() * quotes.length)]);
   };
 
-  const checkAnswer = () => {};
+  // const checkAnswer = () => {
+  //   console.log(
+  //     'Character: ',
+  //     selectedQuote.character,
+  //     selectedCharacter.item._id,
+  //   );
+  //   console.log('Movie: ', selectedQuote.movie, selectedMovie.item._id);
+  //   if (
+  //     selectedQuote.character === selectedCharacter.item._id &&
+  //     selectedQuote.movie === selectedMovie.item._id
+  //   ) {
+  //     alert('Correct!');
+  //   } else {
+  //     alert('Incorrect!');
+  //   }
+  // };
 
   const displayQuoteGuessing = () => {
     return (
@@ -54,11 +64,12 @@ export default function Home() {
         />
         <button
           className="submit"
-          onClick={checkAnswer}
+          onClick={() => setGuessed(true)}
           disabled={!selectedMovie || !selectedCharacter || !selectedQuote}
         >
           Submit
         </button>
+        {/* {displayPlayButton()} */}
       </>
     );
   };
@@ -71,6 +82,11 @@ export default function Home() {
     );
   };
 
+  const playAgain = () => {
+    setGuessed(false);
+    play();
+  };
+
   return (
     <div className="container">
       <h1>Lord of the Rings Quote Quiz</h1>
@@ -78,7 +94,16 @@ export default function Home() {
       <p>
         Guess the character who said the quote and which movie it was said in!
       </p>
-      {selectedQuote ? displayQuoteGuessing() : displayPlayButton()}
+      {!guessed &&
+        (selectedQuote ? displayQuoteGuessing() : displayPlayButton())}
+      {guessed && (
+        <GuessResults
+          onPlayAgain={playAgain}
+          selectedQuote={selectedQuote}
+          selectedCharacter={selectedCharacter}
+          selectedMovie={selectedMovie}
+        />
+      )}
     </div>
   );
 }

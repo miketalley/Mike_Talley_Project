@@ -19,7 +19,7 @@
 body {
   height: 100vh;
   color: #fff;
-  background: linear-gradient(to bottom, transparent, #5c1014) #000;
+  background: #000;
 }
 
 @font-face {
@@ -40,8 +40,14 @@ h1 {
 }
 
 h2 {
+  /* font-family: Bilbo;
+  font-size: 2rem; */
+
+  margin-left: 38px;
   font-family: Bilbo;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin-top: -21px;
+  margin-bottom: 1rem;
 }
 
 h3 {
@@ -68,7 +74,9 @@ input {
   border-radius: 5px;
 }
 
-.quote {
+.quote,
+.character-guess,
+.movie-guess {
   margin-top: 2rem;
 }
 
@@ -89,7 +97,8 @@ input {
 }
 
 button.play,
-button.submit {
+button.submit,
+button.play-again {
   color: black;
   background-color: #f5142e;
   font-size: 1.5em;
@@ -97,7 +106,8 @@ button.submit {
   border-radius: 5px;
 }
 
-button.play {
+button.play,
+button.play-again {
   margin-top: 2rem;
 }
 
@@ -107,6 +117,26 @@ button.clear {
   padding: 2px 5px 2px 5px;
   border-radius: 5px;
   font-size: 0.75em;
+}
+
+.your-guess:before {
+  content: 'Your guess: ';
+}
+
+.correct-answer:before {
+  content: 'Correct answer: ';
+}
+
+.guess-result:before {
+  content: 'Result: ';
+}
+
+.guess-result.correct {
+  color: green;
+}
+
+.guess-result.incorrect {
+  color: red;
 }
 
 @media screen and (max-width: 990px) {

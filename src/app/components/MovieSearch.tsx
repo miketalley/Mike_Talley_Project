@@ -15,7 +15,7 @@ export default function MovieSearch({
   const [movies, setMovies] = useState([]);
 
   const getMovies = async () => {
-    const resp = await fetch(`/api/movies?name=/.*${searchText}.*/i`);
+    const resp = await fetch(`/api/movie?name=/.*${searchText}.*/i`);
     const json = await resp.json();
 
     // Fuzzy match the results since the API does not do a good job of ordering them
@@ -29,7 +29,6 @@ export default function MovieSearch({
   };
 
   const onType = (e: any) => {
-    console.log(e.target.value);
     setSearchText(e.target.value);
     debouncedGetMovies();
   };
@@ -74,7 +73,6 @@ export default function MovieSearch({
             );
           })}
         </div>
-        {/* {JSON.stringify(movies)} */}
       </>
     );
   };

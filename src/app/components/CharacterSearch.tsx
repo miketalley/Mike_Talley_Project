@@ -15,7 +15,7 @@ export default function CharacterSearch({
   const [characters, setCharacters] = useState([]);
 
   const getCharacters = async () => {
-    const resp = await fetch(`/api/characters?name=/.*${searchText}.*/i`);
+    const resp = await fetch(`/api/character?name=/.*${searchText}.*/i`);
     const json = await resp.json();
 
     // Fuzzy match the results since the API does not do a good job of ordering them
@@ -29,7 +29,6 @@ export default function CharacterSearch({
   };
 
   const onType = (e: any) => {
-    console.log(e.target.value);
     setSearchText(e.target.value);
     debouncedGetCharacters();
   };
@@ -77,7 +76,6 @@ export default function CharacterSearch({
             );
           })}
         </div>
-        {/* {JSON.stringify(characters)} */}
       </>
     );
   };
