@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
     `${API_URL}/quote?page=${request.nextUrl.searchParams.get('page')}`,
     {
       headers: {
-        Authorization: `Bearer ${process.env.LOTR_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${process.env.LOTR_ACCESS_TOKEN || ''}`,
       },
     },
   );
