@@ -66,9 +66,11 @@ export default function GuessResults({
             </div>
           </div>
         </div>
-        <button className="play-again" onClick={onPlayAgain}>
-          Play again
-        </button>
+        <div className="play-again-button-container">
+          <button className="play-again" onClick={onPlayAgain}>
+            Play again
+          </button>
+        </div>
       </>
     )
   );

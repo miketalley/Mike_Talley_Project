@@ -54,6 +54,9 @@ h3 {
 
 input {
   color: black;
+  width: 100%;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
 }
 
 .container {
@@ -63,12 +66,6 @@ input {
   justify-content: center;
   flex-direction: column;
   padding: 3rem 6rem;
-}
-
-input {
-  width: 100%;
-  padding: 5px 10px 5px 10px;
-  border-radius: 5px;
 }
 
 .quote,
@@ -95,6 +92,17 @@ input {
   margin-bottom: 1rem;
 }
 
+.play-button-container,
+.play-again-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.submit-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
 button.play,
 button.submit,
 button.play-again {
@@ -103,6 +111,7 @@ button.play-again {
   font-size: 1.5em;
   padding: 5px 20px 5px 20px;
   border-radius: 5px;
+  max-width: 25%;
 }
 
 button.play,
@@ -147,5 +156,24 @@ button.clear {
 @media screen and (max-width: 990px) {
   .container {
     padding: 1rem 2rem 1rem 2rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  h2 {
+    margin-left: 135px;
+    margin-top: -35px;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  h2 {
+    margin-left: 300px;
+  }
+}
+
+@media screen and (max-width: 463px) {
+  h2 {
+    margin-left: 150px;
   }
 }

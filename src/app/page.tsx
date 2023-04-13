@@ -45,22 +45,26 @@ export default function Home() {
           selectedMovie={selectedMovie}
           onSelectMovie={setSelectedMovie}
         />
-        <button
-          className="submit"
-          onClick={() => setGuessed(true)}
-          disabled={!selectedMovie || !selectedCharacter || !selectedQuote}
-        >
-          Submit
-        </button>
+        <div className="submit-button-container">
+          <button
+            className="submit"
+            onClick={() => setGuessed(true)}
+            disabled={!selectedMovie || !selectedCharacter || !selectedQuote}
+          >
+            Submit
+          </button>
+        </div>
       </>
     );
   };
 
   const displayPlayButton = () => {
     return (
-      <button className="play" onClick={play}>
-        Play
-      </button>
+      <div className="play-button-container">
+        <button className="play" onClick={play}>
+          Play
+        </button>
+      </div>
     );
   };
 
