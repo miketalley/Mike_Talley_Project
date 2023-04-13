@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
   return fetch(url, {
     headers: {
-      Authorization: `Bearer ${process.env.LOTR_ACCESS_TOKEN || ''}`,
+      Authorization: `Bearer ${process.env.LOTR_ACCESS_TOKEN}`,
     },
   });
 }
