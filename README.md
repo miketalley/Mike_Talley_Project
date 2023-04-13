@@ -28,6 +28,7 @@ To test...
 ## Issues
 
 - Currently will not build on production due to [a Next.js bug](https://answers.netlify.com/t/next-app-edge-function-bundling-error/89530/4)
+- Special characters are not fuzzy matched by the API, and do not show up in the search unless typed exactly (e.g. `Éowyn` vs `Eowyn`)
 
 ## Links
 
