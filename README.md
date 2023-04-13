@@ -4,6 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 To run locally:
 
+Create a `.env` file in the root of the project with your API access token (this can be obtained at [https://the-one-api.dev/account](https://the-one-api.dev/account))
+
+```
+LOTR_ACCESS_TOKEN=<paste your api token here>
+```
+
 ```bash
 npm run dev
 # or
