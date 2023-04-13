@@ -57,12 +57,23 @@ input {
   width: 100%;
   padding: 5px 10px 5px 10px;
   border-radius: 5px;
+  font-size: 1.25em;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input:focus {
+  outline: none !important;
 }
 
 .container {
   margin: 0 auto;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   flex-direction: column;
   padding: 3rem 6rem;
@@ -80,11 +91,19 @@ input {
 
 .results {
   max-height: 300px;
-  overflow-y: scroll;
+  overflow-y: overlay;
+  border: 2px solid white;
+  padding: 5px 0px 5px 0px;
+  font-size: 1.25em;
 }
 
 .results > * {
   cursor: pointer;
+  padding-left: 10px;
+}
+
+input.search-with-results {
+  border-radius: 5px 5px 0px 0px;
 }
 
 .quoted-text {
@@ -101,6 +120,16 @@ input {
 .submit-button-container {
   display: flex;
   justify-content: flex-end;
+}
+
+.selected-item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.selected-item {
+  font-size: 1.5rem;
 }
 
 button.play,
@@ -121,9 +150,9 @@ button.play-again {
 button.clear {
   color: black;
   background-color: #fff;
-  padding: 2px 5px 2px 5px;
+  padding: 2px 10px 2px 10px;
   border-radius: 5px;
-  font-size: 0.75em;
+  font-size: 1em;
 }
 
 .your-guess:before {

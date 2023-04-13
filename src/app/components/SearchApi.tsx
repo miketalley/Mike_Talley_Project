@@ -51,27 +51,20 @@ export default function SearchApi({
 
   const displaySelectedItem = () => {
     return (
-      <>
+      <div className="selected-item-container">
         <div className="selected-item">
           {selectedItem && selectedItem.item.name}
         </div>
         <button className="clear" onClick={() => selectItem(null)}>
           Clear
         </button>
-      </>
+      </div>
     );
   };
 
-  const displayItemSearch = () => {
+  const displayResults = () => {
     return (
-      <>
-        <input
-          type="text"
-          placeholder={placeholder}
-          value={searchText}
-          onChange={onType}
-        />
-
+      !!items.length && (
         <div className="results">
           {items.map((i: any) => {
             return (
@@ -81,6 +74,22 @@ export default function SearchApi({
             );
           })}
         </div>
+      )
+    );
+  };
+
+  const displayItemSearch = () => {
+    return (
+      <>
+        <input
+          type="text"
+          className={items.length ? 'search-with-results' : ''}
+          placeholder={placeholder}
+          value={searchText}
+          onChange={onType}
+        />
+
+        {displayResults()}
       </>
     );
   };
