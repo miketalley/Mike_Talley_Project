@@ -20,9 +20,9 @@ export default function SearchApi({
   const [searchText, setSearchText] = useState('');
   const [items, setItems] = useState([]);
 
-  const getItems = async () => {
+  const getItems = async (searchInputValue: String) => {
     const resp = await fetch(
-      `/api/${apiEndpointPath}?name=/.*${searchText}.*/i`,
+      `/api/${apiEndpointPath}?name=/.*${searchInputValue}.*/i`,
     );
     const json = await resp.json();
 
@@ -37,8 +37,9 @@ export default function SearchApi({
   };
 
   const onType = (e: any) => {
-    setSearchText(e.target.value);
-    debouncedGetItems();
+    const searchInputValue = e.target.value;
+    setSearchText(searchInputValue);
+    debouncedGetItems(searchInputValue);
   };
 
   const selectItem = (item: any) => {
