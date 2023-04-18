@@ -1,5 +1,5 @@
 {
-  "name": "Mike_Talley_Project",
+  "name": "liblab-lotr",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@netlify/plugin-nextjs": "^4.34.0",
+    "@netlify/plugin-nextjs": "^4.35.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
